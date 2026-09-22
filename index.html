@@ -573,15 +573,15 @@ select.f-in option{background:#0a0a10;color:var(--txt)}
   </div>
   <div class="nav-r">
     <a class="btn btn-g btn-s btn-nav" href="#contato">Fale conosco</a>
-    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false">
+    <button type="button" class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
       <span></span><span></span>
     </button>
   </div>
 </nav>
 
 <!-- menu fullscreen -->
-<div class="menu" id="menu" aria-hidden="true">
-  <button class="menu-x" id="menuX" aria-label="Fechar menu">✕</button>
+<div class="menu" id="menu" aria-hidden="true" role="dialog" aria-label="Menu principal">
+  <button type="button" class="menu-x" id="menuX" aria-label="Fechar menu">✕</button>
   <a class="big" href="#servicos" style="transition-delay:.15s"><span class="grad-t">Serviços</span><small>01</small></a>
   <a class="big" href="#precos" style="transition-delay:.22s"><span class="grad-t">Preços</span><small>02</small></a>
   <a class="big" href="#empresas" style="transition-delay:.29s"><span class="grad-t">Portfólio</span><small>03</small></a>
@@ -1127,7 +1127,7 @@ select.f-in option{background:#0a0a10;color:var(--txt)}
 </style>
 </noscript>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 (function(){
 "use strict";
 var d=document, de=d.documentElement;
@@ -1254,8 +1254,8 @@ function setMenu(open){
   d.getElementById("menu").setAttribute("aria-hidden",open?"false":"true");
 }
 burger.addEventListener("click",function(){ setMenu(!d.body.classList.contains("menu-open")); });
-menuX.addEventListener("click",function(){ setMenu(false); });
-d.addEventListener("keydown",function(e){ if(e.key==="Escape") setMenu(false); });
+menuX.addEventListener("click",function(){ setMenu(false); burger.focus(); });
+d.addEventListener("keydown",function(e){ if(e.key==="Escape"){ setMenu(false); burger.focus(); } });
 
 /* ── âncoras (smooth) ── */
 d.querySelectorAll('a[href^="#"]').forEach(function(a){
@@ -1426,5 +1426,5 @@ if(fine&&!reduce){
 
 })();
 </script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3f15ed95962f19e',t:'MTc5MDA4MDc0Ng=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
